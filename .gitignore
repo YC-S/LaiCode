@@ -32,3 +32,4 @@ hs_err_pid*
 .out
 LaiCode.iml
 out/production/LaiCode/META-INF/
+.idea/uiDesigner.xml
