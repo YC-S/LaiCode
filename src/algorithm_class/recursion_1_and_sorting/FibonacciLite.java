@@ -20,7 +20,7 @@ package algorithm_class.recursion_1_and_sorting;
 public class FibonacciLite {
 
   public static int fibonacci(int K) {
-    if (K == 0) {
+    if (K <= 0) {
       return 0;
     } else if (K == 1) {
       return 1;
