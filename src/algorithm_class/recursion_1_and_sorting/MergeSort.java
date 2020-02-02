@@ -17,7 +17,6 @@ package algorithm_class.recursion_1_and_sorting;
 import java.util.Arrays;
 
 public class MergeSort {
-
   public static int[] mergeSort(int[] array) {
     if (array == null || array.length <= 1) {
       return array;
