@@ -1,4 +1,4 @@
-package algorithm_class.recursion_1_and_sorting;
+package algorithm_class._02_recursion_1_and_sorting;
 
 // Given an array of integers, move all the 0s to the right end of the array.
 //

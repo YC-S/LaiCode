@@ -1,4 +1,4 @@
-package algorithm_class.binary_search;
+package algorithm_class._01_binary_search;
 
 public class Classical_Binary_Search {
   public static int binarySearch(int[] array, int target) {

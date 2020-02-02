@@ -1,4 +1,4 @@
-package algorithm_class.binary_search;
+package algorithm_class._01_binary_search;
 
 // Given a target integer T and an integer array A sorted in ascending order, find the index i in A
 // such that A[i] is closest to T.

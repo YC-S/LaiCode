@@ -1,4 +1,4 @@
-package algorithm_class.recursion_1_and_sorting;
+package algorithm_class._02_recursion_1_and_sorting;
 
 // Given an array of integers, sort the elements in the array in ascending order. The merge sort
 // algorithm should be used to solve this problem.

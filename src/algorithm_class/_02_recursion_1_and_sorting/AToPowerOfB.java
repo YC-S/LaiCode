@@ -1,4 +1,4 @@
-package algorithm_class.recursion_1_and_sorting;
+package algorithm_class._02_recursion_1_and_sorting;
 
 // Evaluate a to the power of b, assuming both a and b are integers and b is non-negative.
 //

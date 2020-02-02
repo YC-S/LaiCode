@@ -1,4 +1,4 @@
-package algorithm_class.binary_search;
+package algorithm_class._01_binary_search;
 
 // Given a integer dictionary A of unknown size, where the numbers in the dictionary are sorted in
 // ascending order, determine if a given target integer T is in the dictionary. Return the index of
