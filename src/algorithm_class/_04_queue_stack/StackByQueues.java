@@ -1,6 +1,5 @@
 package algorithm_class._04_queue_stack;
 
-
 import java.util.ArrayDeque;
 import java.util.Queue;
 
