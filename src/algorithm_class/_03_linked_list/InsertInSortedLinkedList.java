@@ -34,7 +34,7 @@ public class InsertInSortedLinkedList {
     l3.next = l4;
     l4.next = l5;
     l5.next = l6;
-    ListNode res = insert(l1, 3);
+    ListNode res = insert(l1, 2);
     while (res != null) {
       System.out.println(res.value);
       res = res.next;
