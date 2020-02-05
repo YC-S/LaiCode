@@ -20,5 +20,6 @@ public class DifferentBits {
   public static void main(String[] args) {
     System.out.println(diffBits(5, 8));
     System.out.println(diffBits(-1, Integer.MAX_VALUE));
+    System.out.println(diffBits(-1, 1));
   }
 }
