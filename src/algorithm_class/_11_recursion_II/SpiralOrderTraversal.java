@@ -18,7 +18,7 @@ import java.util.List;
 //  {7,  8,  9} }
 //
 // the traversal sequence is [1, 2, 3, 6, 9, 8, 7, 4, 5]
-public class SpiralOrderTraverseI {
+public class SpiralOrderTraversal {
 
   public static List<Integer> spiral(int[][] matrix) {
     List<Integer> res = new ArrayList<>();
