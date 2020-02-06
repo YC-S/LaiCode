@@ -1,4 +1,4 @@
-package algorithm_class._02_recursion_1_and_sorting;
+package algorithm_class._02_recursion_I_and_sorting;
 
 // Get the Kth number in the Fibonacci Sequence. (K is 0-indexed, the 0th Fibonacci number is 0 and
 // the 1st Fibonacci number is 1).

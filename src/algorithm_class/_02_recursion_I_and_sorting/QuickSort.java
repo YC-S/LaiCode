@@ -1,4 +1,4 @@
-package algorithm_class._02_recursion_1_and_sorting;
+package algorithm_class._02_recursion_I_and_sorting;
 
 import java.util.Arrays;
 import java.util.Random;
