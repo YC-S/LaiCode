@@ -37,7 +37,7 @@ public class MergeSort {
   }
 
   private static void merge(int[] array, int left, int mid, int right, int[] helper) {
-    for (int i = 0; i < array.length; i++) {
+    for (int i = left; i <= right; i++) {
       helper[i] = array[i];
     }
     int i = left, j = mid + 1, k = left;
