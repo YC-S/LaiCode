@@ -3,7 +3,9 @@ package algorithm_class._02_recursion_I_and_sorting;
 import java.util.Arrays;
 import java.util.Random;
 
-// Given an array of integers, sort the elements in the array in ascending order. The quick sort
+/**
+ * @author shiyuanchen
+ */ // Given an array of integers, sort the elements in the array in ascending order. The quick sort
 // algorithm should be used to solve this problem.
 //
 // Examples
@@ -28,9 +30,9 @@ public class QuickSort {
     return array;
   }
 
-  private static int[] quickSort(int[] array, int left, int right) {
+  private static void quickSort(int[] array, int left, int right) {
     if (left >= right) {
-      return array;
+      return;
     }
     int pivotIndex = random.nextInt(right - left + 1) + left;
     swap(array, pivotIndex, right);
@@ -45,7 +47,6 @@ public class QuickSort {
     swap(array, i, right);
     quickSort(array, left, i - 1);
     quickSort(array, i + 1, right);
-    return array;
   }
 
   private static void swap(int[] array, int a, int b) {
