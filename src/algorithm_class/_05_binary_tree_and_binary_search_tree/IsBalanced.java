@@ -35,41 +35,41 @@ package algorithm_class._05_binary_tree_and_binary_search_tree;
 
 public class IsBalanced {
 
-  public static boolean isBalanced(TreeNode root) {
-    if (root == null) {
-      return true;
+    public static boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        boolean leftB = isBalanced(root.left);
+        boolean rightB = isBalanced(root.right);
+        if (!leftB || !rightB) {
+            return false;
+        }
+        int left = findHeight(root.left);
+        int right = findHeight(root.right);
+        return Math.abs(left - right) <= 1;
     }
-    boolean leftB = isBalanced(root.left);
-    boolean rightB = isBalanced(root.right);
-    if (!leftB || !rightB) {
-      return false;
-    }
-    int left = findHeight(root.left);
-    int right = findHeight(root.right);
-    return Math.abs(left - right) <= 1;
-  }
 
-  private static int findHeight(TreeNode root) {
-    if (root == null) {
-      return 0;
+    private static int findHeight(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = findHeight(root.left);
+        int right = findHeight(root.right);
+        return Math.max(left, right) + 1;
     }
-    int left = findHeight(root.left);
-    int right = findHeight(root.right);
-    return Math.max(left, right) + 1;
-  }
 
-  public static void main(String[] args) {
-    TreeNode t1 = new TreeNode(5);
-    TreeNode t2 = new TreeNode(3);
-    TreeNode t3 = new TreeNode(8);
-    TreeNode t4 = new TreeNode(1);
-    TreeNode t5 = new TreeNode(4);
-    TreeNode t6 = new TreeNode(11);
-    t1.left = t2;
-    t1.right = t3;
-    t2.left = t4;
-    t2.right = t5;
-    t3.right = t6;
-    System.out.println(isBalanced(t1));
-  }
+    public static void main(String[] args) {
+        TreeNode t1 = new TreeNode(5);
+        TreeNode t2 = new TreeNode(3);
+        TreeNode t3 = new TreeNode(8);
+        TreeNode t4 = new TreeNode(1);
+        TreeNode t5 = new TreeNode(4);
+        TreeNode t6 = new TreeNode(11);
+        t1.left = t2;
+        t1.right = t3;
+        t2.left = t4;
+        t2.right = t5;
+        t3.right = t6;
+        System.out.println(isBalanced(t1));
+    }
 }
