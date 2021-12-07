@@ -29,7 +29,7 @@ public class KClosestInSortedArray {
     int right = left + 1;
     int[] res = new int[k];
     for (int i = 0; i < k; i++) {
-      if (right >= array.length || left >= 0 && (target - array[left] < array[right] - target)) {
+      if (right >= array.length || left >= 0 && (target - array[left] <= array[right] - target)) {
         res[i] = array[left--];
       } else {
         res[i] = array[right++];
