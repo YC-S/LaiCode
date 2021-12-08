@@ -38,32 +38,32 @@ import java.util.List;
 
 public class CombinationsOfCoins {
 
-  public static List<List<Integer>> combinations(int target, int[] coins) {
-    List<List<Integer>> res = new ArrayList<>();
-    List<Integer> cur = new ArrayList<>();
-    helper(target, coins, 0, cur, res);
-    return res;
-  }
-
-  private static void helper(int target, int[] coins, int index, List<Integer> cur,
-    List<List<Integer>> res) {
-    if (index == coins.length - 1) {
-      if (target % coins[index] == 0) {
-        cur.add(target / coins[index]);
-        res.add(new ArrayList<>(cur));
-        cur.remove(cur.size() - 1);
-      }
-      return;
+    public static List<List<Integer>> combinations(int target, int[] coins) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
+        helper(target, coins, 0, cur, res);
+        return res;
     }
-    for (int i = 0; i <= target / coins[index]; i++) {
-      cur.add(i);
-      helper(target - coins[index] * i, coins, index + 1, cur, res);
-      cur.remove(cur.size() - 1);
-    }
-  }
 
-  public static void main(String[] args) {
-    int[] coins = new int[]{1, 5, 10, 25};
-    System.out.println(combinations(99, coins));
-  }
+    private static void helper(int target, int[] coins, int index, List<Integer> cur,
+        List<List<Integer>> res) {
+        if (index == coins.length - 1) {
+            if (target % coins[index] == 0) {
+                cur.add(target / coins[index]);
+                res.add(new ArrayList<>(cur));
+                cur.remove(cur.size() - 1);
+            }
+            return;
+        }
+        for (int i = 0; i <= target / coins[index]; i++) {
+            cur.add(i);
+            helper(target - coins[index] * i, coins, index + 1, cur, res);
+            cur.remove(cur.size() - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] coins = new int[]{1, 5, 10, 25};
+        System.out.println(combinations(99, coins));
+    }
 }

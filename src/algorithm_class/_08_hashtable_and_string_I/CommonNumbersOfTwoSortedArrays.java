@@ -15,29 +15,29 @@ import java.util.List;
 // A = {1, 1, 2, 2, 3}, B = {1, 1, 2, 5, 6}, common numbers are [1, 1, 2]
 public class CommonNumbersOfTwoSortedArrays {
 
-  public static List<Integer> common(int[] A, int[] B) {
-    List<Integer> res = new ArrayList<>();
-    int i = 0, j = 0;
-    if (A == null || B == null) {
-      return res;
+    public static List<Integer> common(int[] A, int[] B) {
+        List<Integer> res = new ArrayList<>();
+        int i = 0, j = 0;
+        if (A == null || B == null) {
+            return res;
+        }
+        while (i < A.length && j < B.length) {
+            if (A[i] == B[j]) {
+                res.add(A[i]);
+                i++;
+                j++;
+            } else if (A[i] < B[j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+        return res;
     }
-    while (i < A.length && j < B.length) {
-      if (A[i] == B[j]) {
-        res.add(A[i]);
-        i++;
-        j++;
-      } else if (A[i] < B[j]) {
-        i++;
-      } else {
-        j++;
-      }
-    }
-    return res;
-  }
 
-  public static void main(String[] args) {
-    int[] A = {1, 1, 2, 2, 3};
-    int[] B = {1, 1, 2, 5, 6};
-    System.out.println(common(A, B));
-  }
+    public static void main(String[] args) {
+        int[] A = {1, 1, 2, 2, 3};
+        int[] B = {1, 1, 2, 5, 6};
+        System.out.println(common(A, B));
+    }
 }

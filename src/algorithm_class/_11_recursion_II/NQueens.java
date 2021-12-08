@@ -27,38 +27,38 @@ import java.util.List;
 // 1.
 public class NQueens {
 
-  public static List<List<Integer>> nqueens(int n) {
-    List<List<Integer>> res = new ArrayList<>();
-    List<Integer> cur = new ArrayList<>();
-    helper(n, cur, res);
-    return res;
-  }
-
-  private static void helper(int n, List<Integer> cur, List<List<Integer>> res) {
-    if (cur.size() == n) {
-      res.add(new ArrayList<>(cur));
-      return;
-    }
-    for (int i = 0; i < n; i++) {
-      if (valid(cur, i)) {
-        cur.add(i);
+    public static List<List<Integer>> nqueens(int n) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
         helper(n, cur, res);
-        cur.remove(cur.size() - 1);
-      }
+        return res;
     }
-  }
 
-  private static boolean valid(List<Integer> cur, int col) {
-    int row = cur.size();
-    for (int i = 0; i < row; i++) {
-      if (cur.get(i) == col || Math.abs(cur.get(i) - col) == row - i) {
-        return false;
-      }
+    private static void helper(int n, List<Integer> cur, List<List<Integer>> res) {
+        if (cur.size() == n) {
+            res.add(new ArrayList<>(cur));
+            return;
+        }
+        for (int i = 0; i < n; i++) {
+            if (valid(cur, i)) {
+                cur.add(i);
+                helper(n, cur, res);
+                cur.remove(cur.size() - 1);
+            }
+        }
     }
-    return true;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(nqueens(1));
-  }
+    private static boolean valid(List<Integer> cur, int col) {
+        int row = cur.size();
+        for (int i = 0; i < row; i++) {
+            if (cur.get(i) == col || Math.abs(cur.get(i) - col) == row - i) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(nqueens(1));
+    }
 }

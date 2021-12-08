@@ -19,20 +19,20 @@ package algorithm_class._02_recursion_I_and_sorting;
 
 public class FibonacciLite {
 
-  public static int fibonacci(int K) {
-    if (K <= 0) {
-      return 0;
-    } else if (K == 1) {
-      return 1;
-    } else {
-      return fibonacci(K - 1) + fibonacci(K - 2);
+    public static int fibonacci(int K) {
+        if (K <= 0) {
+            return 0;
+        } else if (K == 1) {
+            return 1;
+        } else {
+            return fibonacci(K - 1) + fibonacci(K - 2);
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    System.out.println(fibonacci(3));
-    System.out.println(fibonacci(4));
-    System.out.println(fibonacci(5));
-    System.out.println(fibonacci(6));
-  }
+    public static void main(String[] args) {
+        System.out.println(fibonacci(3));
+        System.out.println(fibonacci(4));
+        System.out.println(fibonacci(5));
+        System.out.println(fibonacci(6));
+    }
 }

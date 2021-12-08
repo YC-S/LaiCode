@@ -20,35 +20,35 @@ import java.util.Arrays;
 // What if the input array is of length zero? In this case, we should not do anything as well.
 public class RainbowSort {
 
-  public static int[] rainbowSort(int[] array) {
-    if (array == null || array.length < 2) {
-      return array;
+    public static int[] rainbowSort(int[] array) {
+        if (array == null || array.length < 2) {
+            return array;
+        }
+        int i = 0, j = 0, k = array.length - 1;
+        while (j <= k) {
+            if (array[j] == -1) {
+                swap(array, i++, j++);
+            } else if (array[j] == 0) {
+                j++;
+            } else {
+                swap(array, j, k--);
+            }
+        }
+        return array;
     }
-    int i = 0, j = 0, k = array.length - 1;
-    while (j <= k) {
-      if (array[j] == -1) {
-        swap(array, i++, j++);
-      } else if (array[j] == 0) {
-        j++;
-      } else {
-        swap(array, j, k--);
-      }
+
+    private static void swap(int[] array, int a, int b) {
+        int tmp = array[a];
+        array[a] = array[b];
+        array[b] = tmp;
     }
-    return array;
-  }
 
-  private static void swap(int[] array, int a, int b) {
-    int tmp = array[a];
-    array[a] = array[b];
-    array[b] = tmp;
-  }
-
-  public static void main(String[] args) {
-    int[] array1 = new int[]{0};
-    int[] array2 = new int[]{1, 0};
-    int[] array3 = new int[]{1, 0, 1, -1, 0};
-    System.out.println(Arrays.toString(rainbowSort(array1)));
-    System.out.println(Arrays.toString(rainbowSort(array2)));
-    System.out.println(Arrays.toString(rainbowSort(array3)));
-  }
+    public static void main(String[] args) {
+        int[] array1 = new int[]{0};
+        int[] array2 = new int[]{1, 0};
+        int[] array3 = new int[]{1, 0, 1, -1, 0};
+        System.out.println(Arrays.toString(rainbowSort(array1)));
+        System.out.println(Arrays.toString(rainbowSort(array2)));
+        System.out.println(Arrays.toString(rainbowSort(array3)));
+    }
 }

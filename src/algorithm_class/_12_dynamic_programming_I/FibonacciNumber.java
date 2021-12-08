@@ -18,30 +18,30 @@ package algorithm_class._12_dynamic_programming_I;
 // get an overflowed number, and sometimes we will need to use something like BigInteger.
 public class FibonacciNumber {
 
-  public static long fibonacci(int K) {
-    if (K < 0) {
-      return 0;
-    } else if (K == 0) {
-      return 0;
-    } else if (K == 1) {
-      return 1;
+    public static long fibonacci(int K) {
+        if (K < 0) {
+            return 0;
+        } else if (K == 0) {
+            return 0;
+        } else if (K == 1) {
+            return 1;
+        }
+        long[] array = new long[K + 1];
+        array[0] = 0;
+        array[1] = 1;
+        for (int i = 2; i < array.length; i++) {
+            array[i] = array[i - 1] + array[i - 2];
+        }
+        return array[K];
     }
-    long[] array = new long[K + 1];
-    array[0] = 0;
-    array[1] = 1;
-    for (int i = 2; i < array.length; i++) {
-      array[i] = array[i - 1] + array[i - 2];
-    }
-    return array[K];
-  }
 
-  public static void main(String[] args) {
-    System.out.println(fibonacci(0));
-    System.out.println(fibonacci(1));
-    System.out.println(fibonacci(2));
-    System.out.println(fibonacci(3));
-    System.out.println(fibonacci(4));
-    System.out.println(fibonacci(5));
-    System.out.println(fibonacci(6));
-  }
+    public static void main(String[] args) {
+        System.out.println(fibonacci(0));
+        System.out.println(fibonacci(1));
+        System.out.println(fibonacci(2));
+        System.out.println(fibonacci(3));
+        System.out.println(fibonacci(4));
+        System.out.println(fibonacci(5));
+        System.out.println(fibonacci(6));
+    }
 }

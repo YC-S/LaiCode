@@ -6,43 +6,43 @@ import java.util.LinkedList;
 // poll() and peek() operations. When the queue is empty, poll() and peek() should return null;
 public class QueueByTwoStacks {
 
-  // always insert into the in stack
-  // always remove from the out stack
-  private LinkedList<Integer> in;
-  private LinkedList<Integer> out;
+    // always insert into the in stack
+    // always remove from the out stack
+    private LinkedList<Integer> in;
+    private LinkedList<Integer> out;
 
-  public QueueByTwoStacks() {
-    in = new LinkedList<>();
-    out = new LinkedList<>();
-  }
-
-  public Integer poll() {
-    move();
-    return out.isEmpty() ? null : out.pollFirst();
-  }
-
-  public void move() {
-    if (out.isEmpty()) {
-      while (!in.isEmpty()) {
-        out.offerFirst(in.pollFirst());
-      }
+    public QueueByTwoStacks() {
+        in = new LinkedList<>();
+        out = new LinkedList<>();
     }
-  }
 
-  public void offer(int element) {
-    in.offerFirst(element);
-  }
+    public Integer poll() {
+        move();
+        return out.isEmpty() ? null : out.pollFirst();
+    }
 
-  public Integer peek() {
-    move();
-    return out.isEmpty() ? null : out.peekFirst();
-  }
+    public void move() {
+        if (out.isEmpty()) {
+            while (!in.isEmpty()) {
+                out.offerFirst(in.pollFirst());
+            }
+        }
+    }
 
-  public int size() {
-    return in.size() + out.size();
-  }
+    public void offer(int element) {
+        in.offerFirst(element);
+    }
 
-  public boolean isEmpty() {
-    return in.size() + out.size() == 0;
-  }
+    public Integer peek() {
+        move();
+        return out.isEmpty() ? null : out.peekFirst();
+    }
+
+    public int size() {
+        return in.size() + out.size();
+    }
+
+    public boolean isEmpty() {
+        return in.size() + out.size() == 0;
+    }
 }

@@ -14,17 +14,17 @@ package algorithm_class._10_bit_representation;
 // Output: 1260388352 (0b'01001011001000000000000000000000)
 public class ReverseBitsOfInteger {
 
-  public static long reverseBits(long n) {
-    long res = 0;
-    for (int i = 0; i < 31; i++) {
-      res += (n & 1);
-      n >>= 1;
-      res <<= 1;
+    public static long reverseBits(long n) {
+        long res = 0;
+        for (int i = 0; i < 31; i++) {
+            res += (n & 1);
+            n >>= 1;
+            res <<= 1;
+        }
+        return res;
     }
-    return res;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(reverseBits(1234));
-  }
+    public static void main(String[] args) {
+        System.out.println(reverseBits(1234));
+    }
 }

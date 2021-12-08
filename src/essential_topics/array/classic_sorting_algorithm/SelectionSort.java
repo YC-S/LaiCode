@@ -18,31 +18,31 @@ import java.util.Arrays;
 //
 public class SelectionSort {
 
-  public static int[] solve(int[] array) {
-    if (array == null || array.length < 2) {
-      return array;
-    }
-    for (int i = array.length - 1; i >= 0; i--) {
-      int maxIndex = i;
-      for (int j = i; j >= 0; j--) {
-        if (array[j] > array[maxIndex]) {
-          maxIndex = j;
+    public static int[] solve(int[] array) {
+        if (array == null || array.length < 2) {
+            return array;
         }
-      }
-      swap(array, i, maxIndex);
+        for (int i = array.length - 1; i >= 0; i--) {
+            int maxIndex = i;
+            for (int j = i; j >= 0; j--) {
+                if (array[j] > array[maxIndex]) {
+                    maxIndex = j;
+                }
+            }
+            swap(array, i, maxIndex);
+        }
+        return array;
     }
-    return array;
-  }
 
-  private static void swap(int[] array, int a, int b) {
-    int tmp = array[a];
-    array[a] = array[b];
-    array[b] = tmp;
-  }
+    private static void swap(int[] array, int a, int b) {
+        int tmp = array[a];
+        array[a] = array[b];
+        array[b] = tmp;
+    }
 
-  public static void main(String[] args) {
-    int[] array = new int[]{4, 2, -3, 6, 1};
-    solve(array);
-    System.out.println(Arrays.toString(array));
-  }
+    public static void main(String[] args) {
+        int[] array = new int[]{4, 2, -3, 6, 1};
+        solve(array);
+        System.out.println(Arrays.toString(array));
+    }
 }

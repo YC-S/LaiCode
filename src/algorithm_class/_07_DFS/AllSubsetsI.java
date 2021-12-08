@@ -16,32 +16,32 @@ import java.util.List;
 // Set = null, all the subsets are []
 public class AllSubsetsI {
 
-  public static List<String> subSets(String s) {
-    List<String> res = new ArrayList<>();
-    if (s == null) {
-      return res;
+    public static List<String> subSets(String s) {
+        List<String> res = new ArrayList<>();
+        if (s == null) {
+            return res;
+        }
+        StringBuilder sb = new StringBuilder();
+        char[] arraySet = s.toCharArray();
+        helper(arraySet, sb, 0, res);
+        return res;
     }
-    StringBuilder sb = new StringBuilder();
-    char[] arraySet = s.toCharArray();
-    helper(arraySet, sb, 0, res);
-    return res;
-  }
 
-  private static void helper(char[] set, StringBuilder sb, int index, List<String> res) {
-    if (index == set.length) {
-      res.add(sb.toString());
-      return;
+    private static void helper(char[] set, StringBuilder sb, int index, List<String> res) {
+        if (index == set.length) {
+            res.add(sb.toString());
+            return;
+        }
+        helper(set, sb, index + 1, res);
+        helper(set, sb.append(set[index]), index + 1, res);
+        sb.deleteCharAt(sb.length() - 1);
     }
-    helper(set, sb, index + 1, res);
-    helper(set, sb.append(set[index]), index + 1, res);
-    sb.deleteCharAt(sb.length() - 1);
-  }
 
-  public static void main(String[] args) {
-    System.out.println(subSets("abc"));
-    System.out.println(subSets(""));
-    System.out.println(subSets(null));
-    System.out.println(subSets("a"));
-    System.out.println(subSets("ab"));
-  }
+    public static void main(String[] args) {
+        System.out.println(subSets("abc"));
+        System.out.println(subSets(""));
+        System.out.println(subSets(null));
+        System.out.println(subSets("a"));
+        System.out.println(subSets("ab"));
+    }
 }

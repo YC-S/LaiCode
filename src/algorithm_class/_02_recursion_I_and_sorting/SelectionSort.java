@@ -18,34 +18,34 @@ import java.util.Arrays;
 
 public class SelectionSort {
 
-  public static int[] sort(int[] array) {
-    if (array == null || array.length == 0) {
-      return array;
-    }
-    for (int i = 0; i < array.length; i++) {
-      int min = i;
-      for (int j = i; j < array.length; j++) {
-        if (array[j] < array[min]) {
-          min = j;
+    public static int[] sort(int[] array) {
+        if (array == null || array.length == 0) {
+            return array;
         }
-      }
-      int tmp = array[i];
-      array[i] = array[min];
-      array[min] = tmp;
+        for (int i = 0; i < array.length; i++) {
+            int min = i;
+            for (int j = i; j < array.length; j++) {
+                if (array[j] < array[min]) {
+                    min = j;
+                }
+            }
+            int tmp = array[i];
+            array[i] = array[min];
+            array[min] = tmp;
+        }
+        return array;
     }
-    return array;
-  }
 
-  public static void main(String[] args) {
-    int[] array1 = {1, 2, 3};
-    int[] array2 = {3, 2, 1};
-    int[] array3 = {4, 2, -3, 6, 1};
-    int[] array4 = {1};
-    int[] array5 = {};
-    System.out.println(Arrays.toString(sort(array1)));
-    System.out.println(Arrays.toString(sort(array2)));
-    System.out.println(Arrays.toString(sort(array3)));
-    System.out.println(Arrays.toString(sort(array4)));
-    System.out.println(Arrays.toString(sort(array5)));
-  }
+    public static void main(String[] args) {
+        int[] array1 = {1, 2, 3};
+        int[] array2 = {3, 2, 1};
+        int[] array3 = {4, 2, -3, 6, 1};
+        int[] array4 = {1};
+        int[] array5 = {};
+        System.out.println(Arrays.toString(sort(array1)));
+        System.out.println(Arrays.toString(sort(array2)));
+        System.out.println(Arrays.toString(sort(array3)));
+        System.out.println(Arrays.toString(sort(array4)));
+        System.out.println(Arrays.toString(sort(array5)));
+    }
 }

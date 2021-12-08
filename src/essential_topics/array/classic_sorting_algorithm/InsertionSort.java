@@ -15,31 +15,31 @@ import java.util.Arrays;
 // What if the given array is of length zero? In this case, we do not need to do anything.
 public class InsertionSort {
 
-  public static int[] sort(int[] array) {
-    if (array == null || array.length < 2) {
-      return array;
-    }
-    for (int i = 0; i < array.length; i++) {
-      int minIndex = i;
-      for (int j = i; j < array.length; j++) {
-        if (array[j] <= array[minIndex]) {
-          minIndex = j;
+    public static int[] sort(int[] array) {
+        if (array == null || array.length < 2) {
+            return array;
         }
-      }
-      swap(array, i, minIndex);
+        for (int i = 0; i < array.length; i++) {
+            int minIndex = i;
+            for (int j = i; j < array.length; j++) {
+                if (array[j] <= array[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            swap(array, i, minIndex);
+        }
+        return array;
     }
-    return array;
-  }
 
-  private static void swap(int[] array, int a, int b) {
-    int tmp = array[a];
-    array[a] = array[b];
-    array[b] = tmp;
-  }
+    private static void swap(int[] array, int a, int b) {
+        int tmp = array[a];
+        array[a] = array[b];
+        array[b] = tmp;
+    }
 
-  public static void main(String[] args) {
-    int[] array = {4, 2, -3, 6, 1};
-    sort(array);
-    System.out.println(Arrays.toString(array));
-  }
+    public static void main(String[] args) {
+        int[] array = {4, 2, -3, 6, 1};
+        sort(array);
+        System.out.println(Arrays.toString(array));
+    }
 }

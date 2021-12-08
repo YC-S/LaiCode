@@ -16,49 +16,49 @@ import java.util.Arrays;
 
 public class Move0ToEnds {
 
-  public static int[] moveZero(int[] array) {
-    if (array == null || array.length < 2) {
-      return array;
+    public static int[] moveZero(int[] array) {
+        if (array == null || array.length < 2) {
+            return array;
+        }
+        int i = 0, j = array.length - 1;
+        while (i <= j) {
+            if (array[i] == 0) {
+                swap(array, i, j--);
+            } else {
+                i++;
+            }
+        }
+        return array;
     }
-    int i = 0, j = array.length - 1;
-    while (i <= j) {
-      if (array[i] == 0) {
-        swap(array, i, j--);
-      } else {
-        i++;
-      }
-    }
-    return array;
-  }
 
-  public static int[] moveZero1(int[] array) {
-    if (array == null || array.length < 2) {
-      return array;
+    public static int[] moveZero1(int[] array) {
+        if (array == null || array.length < 2) {
+            return array;
+        }
+        int i = 0, j = 0;
+        while (j < array.length) {
+            if (array[j] != 0) {
+                swap(array, i++, j);
+            }
+            j++;
+        }
+        return array;
     }
-    int i = 0, j = 0;
-    while (j < array.length) {
-      if (array[j] != 0) {
-        swap(array, i++, j);
-      }
-      j++;
+
+    private static void swap(int[] array, int a, int b) {
+        int tmp = array[a];
+        array[a] = array[b];
+        array[b] = tmp;
     }
-    return array;
-  }
 
-  private static void swap(int[] array, int a, int b) {
-    int tmp = array[a];
-    array[a] = array[b];
-    array[b] = tmp;
-  }
-
-  public static void main(String[] args) {
-    int[] array1 = {1};
-    int[] array2 = {1, 0, 3, 0, 1};
-    int[] array3 = {0, 0, 0, 1, 0, 3, 0, 1};
-    System.out.println(Arrays.toString(moveZero(array1)));
-    System.out.println(Arrays.toString(moveZero(array2)));
-    System.out.println(Arrays.toString(moveZero1(array1)));
-    System.out.println(Arrays.toString(moveZero1(array2)));
-    System.out.println(Arrays.toString(moveZero1(array3)));
-  }
+    public static void main(String[] args) {
+        int[] array1 = {1};
+        int[] array2 = {1, 0, 3, 0, 1};
+        int[] array3 = {0, 0, 0, 1, 0, 3, 0, 1};
+        System.out.println(Arrays.toString(moveZero(array1)));
+        System.out.println(Arrays.toString(moveZero(array2)));
+        System.out.println(Arrays.toString(moveZero1(array1)));
+        System.out.println(Arrays.toString(moveZero1(array2)));
+        System.out.println(Arrays.toString(moveZero1(array3)));
+    }
 }

@@ -15,19 +15,19 @@ package algorithm_class._02_recursion_I_and_sorting;
 // this problem on this online judge.
 public class AToPowerOfB {
 
-  public static long power(int a, int b) {
-    if (b == 0) {
-      return 1;
+    public static long power(int a, int b) {
+        if (b == 0) {
+            return 1;
+        }
+        long half = power(a, b / 2);
+        return b % 2 == 1 ? half * half * a : half * half;
     }
-    long half = power(a, b / 2);
-    return b % 2 == 1 ? half * half * a : half * half;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(power(2, 0));
-    System.out.println(power(2, 3));
-    System.out.println(power(0, 10));
-    System.out.println(power(-2, 5));
-    System.out.println(power(0, 0));
-  }
+    public static void main(String[] args) {
+        System.out.println(power(2, 0));
+        System.out.println(power(2, 3));
+        System.out.println(power(0, 10));
+        System.out.println(power(-2, 5));
+        System.out.println(power(0, 0));
+    }
 }

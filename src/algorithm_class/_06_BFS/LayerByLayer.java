@@ -26,43 +26,43 @@ import java.util.Queue;
 
 public class LayerByLayer {
 
-  public static List<List<Integer>> layerByLayer(TreeNode root) {
-    List<List<Integer>> res = new ArrayList<>();
-    if (root == null) {
-      return res;
-    }
-    Queue<TreeNode> queue = new LinkedList<>();
-    queue.offer(root);
-    while (!queue.isEmpty()) {
-      List<Integer> curLayer = new ArrayList<>();
-      int n = queue.size();
-      for (int i = 0; i < n; i++) {
-        TreeNode cur = queue.poll();
-        curLayer.add(cur.key);
-        if (cur.left != null) {
-          queue.offer(cur.left);
+    public static List<List<Integer>> layerByLayer(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
         }
-        if (cur.right != null) {
-          queue.offer(cur.right);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            List<Integer> curLayer = new ArrayList<>();
+            int n = queue.size();
+            for (int i = 0; i < n; i++) {
+                TreeNode cur = queue.poll();
+                curLayer.add(cur.key);
+                if (cur.left != null) {
+                    queue.offer(cur.left);
+                }
+                if (cur.right != null) {
+                    queue.offer(cur.right);
+                }
+            }
+            res.add(curLayer);
         }
-      }
-      res.add(curLayer);
+        return res;
     }
-    return res;
-  }
 
-  public static void main(String[] args) {
-    TreeNode t1 = new TreeNode(5);
-    TreeNode t2 = new TreeNode(3);
-    TreeNode t3 = new TreeNode(8);
-    TreeNode t4 = new TreeNode(1);
-    TreeNode t5 = new TreeNode(4);
-    TreeNode t6 = new TreeNode(11);
-    t1.left = t2;
-    t1.right = t3;
-    t2.left = t4;
-    t2.right = t5;
-    t3.right = t6;
-    System.out.println(layerByLayer(t1));
-  }
+    public static void main(String[] args) {
+        TreeNode t1 = new TreeNode(5);
+        TreeNode t2 = new TreeNode(3);
+        TreeNode t3 = new TreeNode(8);
+        TreeNode t4 = new TreeNode(1);
+        TreeNode t5 = new TreeNode(4);
+        TreeNode t6 = new TreeNode(11);
+        t1.left = t2;
+        t1.right = t3;
+        t2.left = t4;
+        t2.right = t5;
+        t3.right = t6;
+        System.out.println(layerByLayer(t1));
+    }
 }

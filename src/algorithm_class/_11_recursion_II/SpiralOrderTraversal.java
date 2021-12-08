@@ -20,37 +20,37 @@ import java.util.List;
 // the traversal sequence is [1, 2, 3, 6, 9, 8, 7, 4, 5]
 public class SpiralOrderTraversal {
 
-  public static List<Integer> spiral(int[][] matrix) {
-    List<Integer> res = new ArrayList<>();
-    helper(matrix, 0, matrix.length, res);
-    return res;
-  }
+    public static List<Integer> spiral(int[][] matrix) {
+        List<Integer> res = new ArrayList<>();
+        helper(matrix, 0, matrix.length, res);
+        return res;
+    }
 
-  private static void helper(int[][] matrix, int offset, int size, List<Integer> res) {
-    if (size == 0) {
-      return;
+    private static void helper(int[][] matrix, int offset, int size, List<Integer> res) {
+        if (size == 0) {
+            return;
+        }
+        if (size == 1) {
+            res.add(matrix[offset][offset]);
+            return;
+        }
+        for (int i = 0; i < size - 1; i++) {
+            res.add(matrix[offset][offset + i]);
+        }
+        for (int i = 0; i < size - 1; i++) {
+            res.add(matrix[offset + i][offset + size - 1]);
+        }
+        for (int i = size - 1; i >= 1; i--) {
+            res.add(matrix[offset + size - 1][offset + i]);
+        }
+        for (int i = size - 1; i >= 1; i--) {
+            res.add(matrix[offset + i][offset]);
+        }
+        helper(matrix, offset + 1, size - 2, res);
     }
-    if (size == 1) {
-      res.add(matrix[offset][offset]);
-      return;
-    }
-    for (int i = 0; i < size - 1; i++) {
-      res.add(matrix[offset][offset + i]);
-    }
-    for (int i = 0; i < size - 1; i++) {
-      res.add(matrix[offset + i][offset + size - 1]);
-    }
-    for (int i = size - 1; i >= 1; i--) {
-      res.add(matrix[offset + size - 1][offset + i]);
-    }
-    for (int i = size - 1; i >= 1; i--) {
-      res.add(matrix[offset + i][offset]);
-    }
-    helper(matrix, offset + 1, size - 2, res);
-  }
 
-  public static void main(String[] args) {
-    int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    System.out.println(spiral(matrix));
-  }
+    public static void main(String[] args) {
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        System.out.println(spiral(matrix));
+    }
 }

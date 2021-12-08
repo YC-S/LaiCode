@@ -30,30 +30,30 @@ import java.util.PriorityQueue;
 // “c”, "a", "d"]
 public class TopKFrequentWords {
 
-  public static String[] topKFrequent(String[] combo, int k) {
-    Map<String, Integer> map = new HashMap<>();
-    for (String s : combo) {
-      map.put(s, map.getOrDefault(s, 0) + 1);
+    public static String[] topKFrequent(String[] combo, int k) {
+        Map<String, Integer> map = new HashMap<>();
+        for (String s : combo) {
+            map.put(s, map.getOrDefault(s, 0) + 1);
+        }
+        PriorityQueue<Entry<String, Integer>> minHeap =
+            new PriorityQueue<>((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
+        for (Entry<String, Integer> entry : map.entrySet()) {
+            minHeap.offer(entry);
+        }
+        if (k > map.entrySet().size()) {
+            k = map.entrySet().size();
+        }
+        String[] res = new String[k];
+        for (int i = 0; i < k; i++) {
+            res[i] = minHeap.poll().getKey();
+        }
+        return res;
     }
-    PriorityQueue<Entry<String, Integer>> minHeap =
-      new PriorityQueue<>((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
-    for (Entry<String, Integer> entry : map.entrySet()) {
-      minHeap.offer(entry);
-    }
-    if (k > map.entrySet().size()) {
-      k = map.entrySet().size();
-    }
-    String[] res = new String[k];
-    for (int i = 0; i < k; i++) {
-      res[i] = minHeap.poll().getKey();
-    }
-    return res;
-  }
 
-  public static void main(String[] args) {
-    String[] combo = {"a", "a", "b", "b", "b", "b", "c", "c", "c", "d"};
-    System.out.println(Arrays.toString(topKFrequent(combo, 2)));
-    System.out.println(Arrays.toString(topKFrequent(combo, 4)));
-    System.out.println(Arrays.toString(topKFrequent(combo, 5)));
-  }
+    public static void main(String[] args) {
+        String[] combo = {"a", "a", "b", "b", "b", "b", "c", "c", "c", "d"};
+        System.out.println(Arrays.toString(topKFrequent(combo, 2)));
+        System.out.println(Arrays.toString(topKFrequent(combo, 4)));
+        System.out.println(Arrays.toString(topKFrequent(combo, 5)));
+    }
 }
